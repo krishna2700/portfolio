@@ -64,9 +64,10 @@ export default function Experience({ data }: ExperienceProps) {
                   type="button"
                   onClick={() => setOpenId(isOpen ? "" : exp.id)}
                   aria-expanded={isOpen}
-                  className="w-full text-left grid grid-cols-12 gap-4 md:gap-8 py-7 md:py-9 border-t border-[var(--border)] hover:bg-white/[0.015] transition-colors"
+                  className="w-full text-left flex flex-col md:grid md:grid-cols-12 gap-3 md:gap-8 py-6 md:py-9 border-t border-[var(--border)] hover:bg-white/[0.015] transition-colors"
                 >
-                  {/* Year */}
+                  {/* Year + indicator row on mobile */}
+                  <div className="flex items-start justify-between md:contents">
                   <div className="col-span-12 md:col-span-3">
                     <div className="font-mono text-[12px] tabular-nums text-[var(--fg-subtle)] tracking-wide">
                       {exp.startDate}{" "}
@@ -84,7 +85,7 @@ export default function Experience({ data }: ExperienceProps) {
                   {/* Role + company */}
                   <div className="col-span-12 md:col-span-7">
                     <div className="flex items-baseline flex-wrap gap-x-2 gap-y-1">
-                      <h3 className="font-serif text-2xl md:text-[28px] text-[var(--fg)] leading-tight">
+                      <h3 className="font-serif text-xl md:text-[28px] text-[var(--fg)] leading-tight">
                         {exp.role}
                       </h3>
                       <span className="text-[var(--fg-subtle)] text-lg">
@@ -100,7 +101,7 @@ export default function Experience({ data }: ExperienceProps) {
                   </div>
 
                   {/* Indicator */}
-                  <div className="col-span-12 md:col-span-2 flex md:justify-end items-start">
+                  <div className="col-span-12 md:col-span-2 flex md:justify-end items-start flex-shrink-0">
                     <motion.span
                       animate={{ rotate: isOpen ? 45 : 0 }}
                       transition={{ duration: 0.35, ease }}
@@ -110,6 +111,7 @@ export default function Experience({ data }: ExperienceProps) {
                       +
                     </motion.span>
                   </div>
+                  </div>{/* end mobile flex row */}
                 </button>
 
                 <AnimatePresence initial={false}>

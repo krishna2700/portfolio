@@ -72,7 +72,7 @@ export default function Contact({ data }: ContactProps) {
           initial={{ opacity: 0, y: 18 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease, delay: 0.05 }}
-          className="font-serif text-[clamp(2.5rem,7vw,6rem)] leading-[0.98] tracking-[-0.025em] text-[var(--fg)] max-w-5xl"
+          className="font-serif text-[clamp(2rem,7vw,6rem)] leading-[1.05] md:leading-[0.98] tracking-[-0.025em] text-[var(--fg)] max-w-5xl"
         >
           Let&rsquo;s build
           <br />
@@ -81,7 +81,7 @@ export default function Contact({ data }: ContactProps) {
           </span>
         </motion.h3>
 
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 mt-24">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 mt-10 md:mt-16 lg:mt-24">
 
           {/* ── Left — intro + direct email ── */}
           <motion.aside
@@ -100,7 +100,7 @@ export default function Contact({ data }: ContactProps) {
               {/* Direct email CTA */}
               <a
                 href={`mailto:${data.email}`}
-                className="group mt-8 inline-flex items-center gap-3 px-5 py-3.5 rounded-xl border border-[var(--border-strong)] bg-[var(--bg-elev)] hover:border-[var(--accent)]/50 transition-all duration-300"
+                className="group mt-8 flex items-center gap-3 px-5 py-3.5 rounded-xl border border-[var(--border-strong)] bg-[var(--bg-elev)] hover:border-[var(--accent)]/50 transition-all duration-300 min-w-0 w-full sm:w-auto"
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.boxShadow =
                     "0 0 24px -4px rgba(197,253,108,0.18)";
@@ -110,7 +110,7 @@ export default function Contact({ data }: ContactProps) {
                 }}
               >
                 <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse flex-shrink-0" />
-                <span className="text-[14px] text-[var(--fg)] group-hover:text-[var(--accent)] transition-colors font-mono">
+                <span className="text-[14px] text-[var(--fg)] group-hover:text-[var(--accent)] transition-colors font-mono truncate min-w-0">
                   {data.email}
                 </span>
                 <span className="ml-auto text-[var(--fg-subtle)] group-hover:text-[var(--accent)] transition-colors">
@@ -185,14 +185,14 @@ export default function Contact({ data }: ContactProps) {
                 placeholder="A few sentences about what you're building."
               />
 
-              <div className="flex items-center justify-between pt-2">
+              <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
                 <p className="text-[12px] text-[var(--fg-subtle)] font-mono">
                   PGP / detailed brief? Email me directly.
                 </p>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="btn-primary disabled:opacity-60 disabled:cursor-not-allowed"
+                  className="btn-primary disabled:opacity-60 disabled:cursor-not-allowed w-full sm:w-auto justify-center"
                 >
                   {loading ? (
                     <>

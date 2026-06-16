@@ -29,13 +29,13 @@ export default function Footer({ about }: FooterProps) {
     <footer className="relative mt-0 border-t border-[var(--border)]">
 
       {/* ── CTA block ── */}
-      <div className="container-page pt-24 pb-20">
+      <div className="container-page pt-12 md:pt-24 pb-12 md:pb-20">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, ease }}
-          className="relative rounded-2xl border border-[var(--border)] overflow-hidden p-10 md:p-14 mb-24"
+          className="relative rounded-2xl border border-[var(--border)] overflow-hidden p-6 sm:p-10 md:p-14 mb-12 md:mb-24"
           style={{
             background:
               "radial-gradient(ellipse 80% 60% at 50% 120%, rgba(197,253,108,0.07) 0%, transparent 70%), var(--bg-elev)",
@@ -107,7 +107,7 @@ export default function Footer({ about }: FooterProps) {
               </a>
 
               {/* LinkedIn + GitHub */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 gap-3">
                 <a
                   href={about.linkedin}
                   target="_blank"
@@ -119,7 +119,7 @@ export default function Footer({ about }: FooterProps) {
                     <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--fg-subtle)] mb-0.5">
                       LinkedIn
                     </div>
-                    <div className="text-[13px] text-[var(--fg-muted)] group-hover:text-[var(--fg)] transition-colors">
+                    <div className="text-[13px] text-[var(--fg-muted)] group-hover:text-[var(--fg)] transition-colors truncate">
                       krishna-ruparelia
                     </div>
                   </div>
@@ -138,7 +138,7 @@ export default function Footer({ about }: FooterProps) {
                     <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--fg-subtle)] mb-0.5">
                       GitHub
                     </div>
-                    <div className="text-[13px] text-[var(--fg-muted)] group-hover:text-[var(--fg)] transition-colors">
+                    <div className="text-[13px] text-[var(--fg-muted)] group-hover:text-[var(--fg)] transition-colors truncate">
                       krishna2700
                     </div>
                   </div>

@@ -73,8 +73,8 @@ function MiniBar({
 }) {
   const pct = max > 0 ? Math.round((count / max) * 100) : 0;
   return (
-    <div className="flex items-center gap-3">
-      <div className="w-28 text-slate-400 text-xs truncate flex-shrink-0">{label}</div>
+    <div className="flex items-center gap-2">
+      <div className="w-20 sm:w-28 text-slate-400 text-xs truncate flex-shrink-0">{label}</div>
       <div className="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">
         <div
           className={`h-full rounded-full bg-gradient-to-r ${color} transition-all duration-700`}
@@ -350,7 +350,7 @@ export default function AnalyticsDashboard() {
                           {v.city ? `${v.city}, ` : ""}{v.country}
                         </span>
                       )}
-                      <span className="ml-auto inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-mono flex-shrink-0">
+                      <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-mono flex-shrink-0">
                         {v.visits}× visit{v.visits > 1 ? "s" : ""}
                       </span>
                     </div>

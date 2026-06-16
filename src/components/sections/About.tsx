@@ -98,7 +98,7 @@ export default function About({ data }: AboutProps) {
               {meta(data).map((m) => (
                 <div
                   key={m.k}
-                  className="grid grid-cols-[110px_1fr] gap-4 py-3.5 border-b border-[var(--border)] first:border-t"
+                  className="grid grid-cols-[90px_1fr] sm:grid-cols-[110px_1fr] gap-3 sm:gap-4 py-3.5 border-b border-[var(--border)] first:border-t"
                 >
                   <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[var(--fg-subtle)] pt-0.5">
                     {m.k}

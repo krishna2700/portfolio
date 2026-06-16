@@ -53,14 +53,14 @@ export default function Skills({ data }: SkillsProps) {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease, delay: 0.05 }}
-          className="font-serif text-[22px] md:text-[28px] leading-[1.3] text-[var(--fg-muted)] max-w-3xl mb-20"
+          className="font-serif text-[18px] md:text-[28px] leading-[1.3] text-[var(--fg-muted)] max-w-3xl mb-10 md:mb-20"
         >
           I&rsquo;m not a fan of skill bars — they lie. Here&rsquo;s an honest
           breakdown of where I am with the tools I use.
         </motion.p>
 
         {/* Tier columns */}
-        <div className="grid lg:grid-cols-3 gap-12 lg:gap-16">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12 lg:gap-16">
           {skillTiers.map((tier, i) => (
             <motion.div
               key={tier.label}
@@ -136,7 +136,7 @@ export default function Skills({ data }: SkillsProps) {
           initial={{ opacity: 0, y: 12 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, ease, delay: 0.4 }}
-          className="mt-24 pt-8 border-t border-[var(--border)] grid md:grid-cols-3 gap-8 text-[13px] text-[var(--fg-subtle)] font-mono"
+          className="mt-12 md:mt-24 pt-8 border-t border-[var(--border)] grid sm:grid-cols-3 gap-6 md:gap-8 text-[13px] text-[var(--fg-subtle)] font-mono"
         >
           <div>
             <span className="text-[var(--fg-muted)]">Approach</span>
