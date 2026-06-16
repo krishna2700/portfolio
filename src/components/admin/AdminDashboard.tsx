@@ -130,6 +130,7 @@ function ExperienceEditor() {
     setItems(Array.isArray(data) ? data : []);
   }, []);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { load(); }, [load]);
 
   const save = async (item: Record<string, unknown>) => {
@@ -232,6 +233,7 @@ function ProjectsEditor() {
     setItems(Array.isArray(data) ? data : []);
   }, []);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { load(); }, [load]);
 
   const save = async (item: Record<string, unknown>) => {
@@ -334,6 +336,7 @@ function SkillsEditor() {
     setItems(Array.isArray(data) ? data : []);
   }, []);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { load(); }, [load]);
 
   const save = async (item: Record<string, unknown>) => {
@@ -414,6 +417,7 @@ function MessagesViewer() {
     setMessages(Array.isArray(data) ? data : []);
   }, []);
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => { load(); }, [load]);
 
   const markRead = async (id: string) => {
