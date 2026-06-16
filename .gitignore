@@ -41,3 +41,13 @@ yarn-error.log*
 next-env.d.ts
 
 /src/generated/prisma
+
+# Blackbox CLI internals
+.blackbox/
+.blackboxcli/
+
+# Videos / recordings
+/videos/
+
+# Resume PDF (keep in public/ only)
+/Krishna Ruparelia Resume.pdf
