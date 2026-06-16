@@ -2,16 +2,18 @@
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import toast from "react-hot-toast";
+import AnalyticsDashboard from "@/components/admin/AnalyticsDashboard";
 
 interface AdminDashboardProps {
   user: { email: string; name: string };
   onLogout: () => void;
 }
 
-type Section = "overview" | "hero" | "about" | "experience" | "projects" | "skills" | "messages";
+type Section = "overview" | "analytics" | "hero" | "about" | "experience" | "projects" | "skills" | "messages";
 
 const navItems: { id: Section; label: string; icon: string }[] = [
   { id: "overview", label: "Overview", icon: "◈" },
+  { id: "analytics", label: "Analytics", icon: "◑" },
   { id: "hero", label: "Hero", icon: "⬡" },
   { id: "about", label: "About", icon: "◉" },
   { id: "experience", label: "Experience", icon: "◎" },
@@ -620,6 +622,7 @@ export default function AdminDashboard({ user, onLogout }: AdminDashboardProps) 
               transition={{ duration: 0.25 }}
             >
               {activeSection === "overview" && <Overview user={user} />}
+              {activeSection === "analytics" && <AnalyticsDashboard />}
               {activeSection === "hero" && <HeroEditor />}
               {activeSection === "about" && <AboutEditor />}
               {activeSection === "experience" && <ExperienceEditor />}

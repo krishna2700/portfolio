@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { trackClick } from "@/lib/track";
 
 interface FooterProps {
   about: {
@@ -83,6 +84,7 @@ export default function Footer({ about }: FooterProps) {
               <a
                 href={`mailto:${about.email}`}
                 className="group flex items-center justify-between gap-4 p-5 rounded-xl border border-[var(--border)] bg-[var(--bg)] hover:border-[var(--accent)]/40 transition-all duration-300"
+                onClick={() => trackClick("Email (Footer CTA)", `mailto:${about.email}`)}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.boxShadow =
                     "0 0 28px -4px rgba(197,253,108,0.18)";
@@ -111,6 +113,7 @@ export default function Footer({ about }: FooterProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center justify-between gap-2 p-4 rounded-xl border border-[var(--border)] bg-[var(--bg)] hover:border-[var(--border-strong)] transition-all duration-300"
+                  onClick={() => trackClick("LinkedIn", about.linkedin)}
                 >
                   <div>
                     <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--fg-subtle)] mb-0.5">
@@ -129,6 +132,7 @@ export default function Footer({ about }: FooterProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center justify-between gap-2 p-4 rounded-xl border border-[var(--border)] bg-[var(--bg)] hover:border-[var(--border-strong)] transition-all duration-300"
+                  onClick={() => trackClick("GitHub", about.github)}
                 >
                   <div>
                     <div className="font-mono text-[10px] uppercase tracking-[0.12em] text-[var(--fg-subtle)] mb-0.5">
@@ -150,6 +154,7 @@ export default function Footer({ about }: FooterProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary justify-center text-center"
+                onClick={() => trackClick("Resume Download (Footer)", "/krishna-ruparelia-resume.pdf")}
               >
                 Download Résumé (PDF)
                 <span>↓</span>
@@ -191,6 +196,7 @@ export default function Footer({ about }: FooterProps) {
                 <a
                   href={`mailto:${about.email}`}
                   className="text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--accent)] transition-colors"
+                  onClick={() => trackClick("Email (Footer Nav)", `mailto:${about.email}`)}
                 >
                   Email ↗
                 </a>
@@ -201,6 +207,7 @@ export default function Footer({ about }: FooterProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors"
+                  onClick={() => trackClick("LinkedIn (Footer Nav)", about.linkedin)}
                 >
                   LinkedIn ↗
                 </a>
@@ -211,6 +218,7 @@ export default function Footer({ about }: FooterProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors"
+                  onClick={() => trackClick("GitHub (Footer Nav)", about.github)}
                 >
                   GitHub ↗
                 </a>
@@ -221,6 +229,7 @@ export default function Footer({ about }: FooterProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[13.5px] text-[var(--fg-muted)] hover:text-[var(--fg)] transition-colors"
+                  onClick={() => trackClick("Resume (Footer Nav)", "/krishna-ruparelia-resume.pdf")}
                 >
                   Résumé ↗
                 </a>

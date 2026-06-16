@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { companiesData } from "@/lib/data";
 import AIGrid from "@/components/ui/AIGrid";
+import { trackClick } from "@/lib/track";
 
 interface HeroProps {
   data: {
@@ -150,7 +151,7 @@ export default function Hero({ data, about }: HeroProps) {
               transition={{ duration: 0.8, ease, delay: 0.6 }}
               className="mt-10 flex flex-wrap items-center gap-3"
             >
-              <a href={data.ctaLink} className="btn-primary group">
+              <a href={data.ctaLink} className="btn-primary group" onClick={() => trackClick("Hero CTA", data.ctaLink)}>
                 {data.ctaText}
                 <span className="transition-transform group-hover:translate-x-0.5">→</span>
               </a>
@@ -160,6 +161,7 @@ export default function Hero({ data, about }: HeroProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn-ghost group"
+                  onClick={() => trackClick("Resume Download", data.resumeUrl)}
                 >
                   Résumé
                   <span className="opacity-60 group-hover:opacity-100 transition">↓</span>
@@ -168,6 +170,7 @@ export default function Hero({ data, about }: HeroProps) {
               <a
                 href={`mailto:${about.email}`}
                 className="ml-1 hidden sm:inline-flex text-[13px] text-[var(--fg-subtle)] hover:text-[var(--accent)] transition-colors"
+                onClick={() => trackClick("Email (Hero)", `mailto:${about.email}`)}
               >
                 {about.email}
               </a>

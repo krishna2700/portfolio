@@ -86,3 +86,36 @@ model Message {
   read      Boolean  @default(false)
   createdAt DateTime @default(now())
 }
+
+model PageView {
+  id        String   @id @default(cuid())
+  page      String
+  ip        String?
+  country   String?
+  city      String?
+  device    String?
+  browser   String?
+  os        String?
+  referrer  String?
+  userAgent String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([page])
+  @@index([ip])
+}
+
+model LinkClick {
+  id        String   @id @default(cuid())
+  label     String
+  url       String?
+  ip        String?
+  country   String?
+  city      String?
+  device    String?
+  browser   String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([label])
+}
