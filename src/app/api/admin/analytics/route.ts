@@ -81,18 +81,48 @@ export async function GET() {
     .sort((a, b) => b[1] - a[1])
     .map(([label, count]) => ({ label, count }));
 
-  // Recent visitors (last 20)
-  const recentVisitors = pageViews.slice(0, 20).map((v) => ({
-    id: v.id,
-    ip: v.ip,
-    country: v.country,
-    city: v.city,
-    device: v.device,
-    browser: v.browser,
-    os: v.os,
-    referrer: v.referrer,
-    createdAt: v.createdAt,
-  }));
+  // Unique visitors grouped by IP with visit count
+  const visitorMap = new Map<string, {
+    ip: string;
+    country: string | null;
+    city: string | null;
+    device: string | null;
+    browser: string | null;
+    os: string | null;
+    referrer: string | null;
+    visits: number;
+    firstSeen: Date;
+    lastSeen: Date;
+  }>();
+
+  for (const v of pageViews) {
+    const key = v.ip || "unknown";
+    if (visitorMap.has(key)) {
+      const existing = visitorMap.get(key)!;
+      existing.visits += 1;
+      if (v.createdAt < existing.firstSeen) existing.firstSeen = v.createdAt;
+      if (v.createdAt > existing.lastSeen) existing.lastSeen = v.createdAt;
+    } else {
+      visitorMap.set(key, {
+        ip: v.ip || "unknown",
+        country: v.country,
+        city: v.city,
+        device: v.device,
+        browser: v.browser,
+        os: v.os,
+        referrer: v.referrer,
+        visits: 1,
+        firstSeen: v.createdAt,
+        lastSeen: v.createdAt,
+      });
+    }
+  }
+
+  // Sort by last seen, take top 20
+  const recentVisitors = Array.from(visitorMap.values())
+    .sort((a, b) => b.lastSeen.getTime() - a.lastSeen.getTime())
+    .slice(0, 20)
+    .map((v) => ({ ...v, id: v.ip }));
 
   // Recent link clicks (last 20)
   const recentClicks = linkClicks.slice(0, 20).map((c) => ({

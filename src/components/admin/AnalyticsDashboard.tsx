@@ -12,14 +12,16 @@ interface AnalyticsData {
   topLinks: { label: string; count: number }[];
   recentVisitors: {
     id: string;
-    ip: string | null;
+    ip: string;
     country: string | null;
     city: string | null;
     device: string | null;
     browser: string | null;
     os: string | null;
     referrer: string | null;
-    createdAt: string;
+    visits: number;
+    firstSeen: string;
+    lastSeen: string;
   }[];
   recentClicks: {
     id: string;
@@ -338,14 +340,15 @@ export default function AnalyticsDashboard() {
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="text-white text-xs font-mono">
-                        {v.ip || "—"}
-                      </span>
+                      <span className="text-white text-xs font-mono">{v.ip}</span>
                       {v.country && (
                         <span className="text-slate-500 text-xs">
                           {v.city ? `${v.city}, ` : ""}{v.country}
                         </span>
                       )}
+                      <span className="ml-auto inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-mono flex-shrink-0">
+                        {v.visits}× visit{v.visits > 1 ? "s" : ""}
+                      </span>
                     </div>
                     <div className="text-slate-600 text-[11px] font-mono mt-0.5">
                       {v.browser} · {v.os} · {v.device}
@@ -355,9 +358,9 @@ export default function AnalyticsDashboard() {
                         </span>
                       )}
                     </div>
-                  </div>
-                  <div className="text-slate-600 text-[11px] font-mono flex-shrink-0">
-                    {timeAgo(v.createdAt)}
+                    <div className="text-slate-700 text-[10px] font-mono mt-0.5">
+                      First: {timeAgo(v.firstSeen)} · Last: {timeAgo(v.lastSeen)}
+                    </div>
                   </div>
                 </div>
               ))
