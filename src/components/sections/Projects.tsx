@@ -195,13 +195,14 @@ export default function Projects({ data }: ProjectsProps) {
                                   key={s.label}
                                   className="p-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg)]"
                                 >
-                                  <CountUp
-                                    value={s.value}
-                                    active={isOpen}
-                                    duration={900}
-                                    className="font-mono text-[15px] font-semibold block"
-                                    style={{ color: accent } as React.CSSProperties}
-                                  />
+                                  <span style={{ color: accent } as React.CSSProperties}>
+                                    <CountUp
+                                      value={s.value}
+                                      active={isOpen}
+                                      duration={900}
+                                      className="font-mono text-[15px] font-semibold block"
+                                    />
+                                  </span>
                                   <div className="font-mono text-[10px] uppercase tracking-[0.1em] text-[var(--fg-subtle)] mt-0.5">
                                     {s.label}
                                   </div>
