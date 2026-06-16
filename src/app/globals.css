@@ -1,26 +1,316 @@
 @import "tailwindcss";
 
+/* ==========================================================================
+   Design Tokens — restrained, editorial, monochrome + single accent
+   ========================================================================== */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0a0a0a;
+  --bg-elev: #111111;
+  --bg-elev-2: #161616;
+  --fg: #fafafa;
+  --fg-muted: #a1a1a1;
+  --fg-subtle: #737373;
+  --fg-faint: #525252;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --accent: #c5fd6c;          /* electric lime — used sparingly */
+  --accent-dim: rgba(197, 253, 108, 0.16);
+  --accent-text: #0a0a0a;
+
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, "SF Mono", Menlo, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+
+  /* AI glow system */
+  --glow-accent: 0 0 40px -8px rgba(197,253,108,0.18), 0 0 80px -20px rgba(197,253,108,0.08);
+  --glow-white: 0 0 40px -8px rgba(255,255,255,0.06);
+  --glow-inset: inset 0 1px 0 rgba(255,255,255,0.06);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Tailwind's preflight already handles box-sizing & margin reset.
+   Do NOT add `* { padding: 0 }` — it overrides utilities like pt-32. */
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11", "calt";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 15px;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+}
+
+/* Typography defaults */
+.font-serif {
+  font-family: var(--font-serif);
+  font-feature-settings: "ss01";
+  letter-spacing: -0.02em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "ss02", "zero";
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+/* Scrollbar — minimal */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Focus ring — accessible + on-brand */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   Subtle film-grain noise — barely visible
+   ========================================================================== */
+.noise::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.025;
+  mix-blend-mode: overlay;
+  z-index: 100;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ==========================================================================
+   Reusable patterns
+   ========================================================================== */
+
+/* Hairline divider with optional inset color */
+.hairline {
+  border-color: var(--border);
+}
+
+/* Eyebrow label — mono, uppercase, tracked */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fg-subtle);
+}
+
+/* Accent chip / link underline */
+.accent-link {
+  position: relative;
+  color: var(--fg);
+  transition: color 200ms var(--ease-out-quart);
+}
+.accent-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: var(--fg-faint);
+  transform-origin: left;
+  transition: background-color 250ms var(--ease-out-quart);
+}
+.accent-link:hover {
+  color: var(--accent);
+}
+.accent-link:hover::after {
+  background: var(--accent);
+}
+
+/* Magnetic CTA shared */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--fg);
+  color: var(--bg);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  padding: 12px 20px;
+  border-radius: 999px;
+  transition: transform 250ms var(--ease-out-quart), background-color 250ms var(--ease-out-quart), box-shadow 250ms var(--ease-out-quart);
+}
+.btn-primary:hover {
+  background: var(--accent);
+  color: var(--accent-text);
+  transform: translateY(-1px);
+  box-shadow: 0 0 24px -4px rgba(197,253,108,0.4);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--fg);
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  padding: 12px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  transition: border-color 250ms var(--ease-out-quart), background-color 250ms var(--ease-out-quart), box-shadow 250ms var(--ease-out-quart);
+}
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: var(--glow-inset);
+}
+
+/* AI card — elevated surface with glow on hover */
+.card-ai {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: border-color 350ms var(--ease-out-quart), box-shadow 350ms var(--ease-out-quart);
+  box-shadow: var(--glow-inset);
+}
+.card-ai:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--glow-white), var(--glow-inset);
+}
+.card-ai.accent:hover {
+  border-color: rgba(197,253,108,0.25);
+  box-shadow: var(--glow-accent), var(--glow-inset);
+}
+
+/* Section frame */
+.section {
+  padding: 120px 0;
+  position: relative;
+}
+@media (max-width: 768px) {
+  .section {
+    padding: 80px 0;
+  }
+}
+
+/* Container */
+.container-page {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+@media (max-width: 640px) {
+  .container-page {
+    padding: 0 20px;
+  }
+}
+
+/* Tag chip — for tech stacks */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.01em;
+  color: var(--fg-muted);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  transition: color 200ms var(--ease-out-quart), border-color 200ms var(--ease-out-quart);
+}
+.chip:hover {
+  color: var(--fg);
+  border-color: var(--border-strong);
+}
+
+/* ── AI animation keyframes ── */
+
+/* Navbar waveform bars */
+@keyframes waveBar {
+  0%   { transform: scaleY(0.4); opacity: 0.4; }
+  100% { transform: scaleY(1.2); opacity: 1; }
+}
+
+/* Shimmer sweep — used on cards */
+@keyframes shimmerSweep {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Scanline sweep */
+@keyframes scanline {
+  0%   { top: 0%; opacity: 0; }
+  10%  { opacity: 0.8; }
+  90%  { opacity: 0.8; }
+  100% { top: 100%; opacity: 0; }
+}
+
+/* Data flow pulse */
+@keyframes dataflow {
+  0%   { stroke-dashoffset: 100; opacity: 0; }
+  20%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+/* Glow pulse on accent elements */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 8px rgba(197,253,108,0.3); }
+  50%       { box-shadow: 0 0 20px rgba(197,253,108,0.6), 0 0 40px rgba(197,253,108,0.2); }
+}
+
+.glow-pulse {
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Hide scrollbar utility for horizontal rails */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

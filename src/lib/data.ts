@@ -1,0 +1,358 @@
+// Static fallback data - used when DB is not connected
+export const heroData = {
+  name: "Krishna Ruparelia",
+  title: "Senior Full Stack Developer",
+  subtitle: "AI Engineer & Architect",
+  tagline:
+    "Building the future with AI-powered applications, scalable architectures, and intelligent automation systems.",
+  ctaText: "Selected work",
+  ctaLink: "#work",
+  resumeUrl: "/krishna-ruparelia-resume.pdf",
+};
+
+// Companies row — used as a credibility lockup under the hero
+export const companiesData = [
+  "Blackbox.AI",
+  "The Branding Club",
+  "Sanda Group",
+  "Kenverse",
+  "Margosatree",
+];
+
+// Proficiency tiers — all skills from resume, organized by how often used
+export const skillTiers = [
+  {
+    label: "Daily drivers",
+    note: "Tools I reach for every day. Production-grade, deeply opinionated.",
+    items: [
+      "JavaScript",
+      "TypeScript",
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "Python",
+      "FastAPI",
+      "Express.js",
+      "PostgreSQL",
+      "MongoDB",
+      "OpenAI API",
+      "LangChain",
+      "Prompt Engineering",
+      "RAG Systems",
+      "AI Agents",
+    ],
+  },
+  {
+    label: "Comfortable with",
+    note: "Used extensively on shipping projects.",
+    items: [
+      "Tailwind CSS",
+      "Framer Motion",
+      "GSAP",
+      "Redux / RTK",
+      "GraphQL",
+      "Django",
+      "Redis",
+      "Socket.io",
+      "Docker",
+      "LiteLLM",
+      "LangGraph",
+      "Pinecone",
+      "Vector DBs",
+      "Multi-model AI",
+      "Webhooks",
+      "REST APIs",
+      "Microservices",
+      "CI/CD",
+      "Git / GitHub",
+    ],
+  },
+  {
+    label: "Familiar with",
+    note: "Hands-on, but not where I spend most of my time.",
+    items: [
+      "Kubernetes",
+      "AWS",
+      "Storyblok CMS",
+      "Adyen",
+      "Stripe",
+      "OAuth2",
+      "JWT / Auth",
+      "Nodemailer",
+      "BEM / Sass",
+      "Three.js",
+      "Neon DB",
+      "Prisma ORM",
+      "Recharts",
+    ],
+  },
+];
+
+export const aboutData = {
+  bio: "I'm a Senior Full Stack Developer specializing in MERN stack, Next.js, and Python frameworks, with deep expertise in AI/LLM integration. Currently building production-grade AI applications at Blackbox.AI, I architect scalable systems that leverage the power of large language models, RAG workflows, and intelligent automation.",
+  bio2: "With 5+ years of experience across startups and product companies, I've led teams, designed microservices, and shipped features used by thousands. I'm passionate about the intersection of AI and software engineering — building tools that don't just work, but think.",
+  location: "Mumbai, Maharashtra",
+  email: "krishnaruparelia0207@gmail.com",
+  phone: "+91 9757158306",
+  linkedin: "https://www.linkedin.com/in/krishna-ruparelia-559229233/",
+  github: "https://github.com/krishna2700",
+};
+
+export const experienceData = [
+  {
+    id: "0",
+    company: "Self-Employed",
+    role: "Freelance Full-Stack & AI Engineer",
+    startDate: "Jun 2026",
+    endDate: "Present",
+    location: "Mumbai (Remote)",
+    current: true,
+    order: 0,
+    description: [
+      "Building full-stack web applications and AI-powered products for clients across fintech, SaaS, and e-commerce verticals",
+      "Architecting LLM-integrated backends using FastAPI, LangChain, and OpenAI-compatible APIs with RAG pipelines and agentic workflows",
+      "Developing responsive, performant frontends with React, Next.js, TypeScript, and Tailwind CSS",
+      "Designing and deploying scalable REST APIs, microservices, and event-driven systems using Node.js, Express, and PostgreSQL",
+      "Implementing AI automation features including intelligent chatbots, document Q&A systems, and multi-model orchestration layers",
+      "Consulting on AI strategy, system architecture, and engineering best practices for early-stage startups",
+    ],
+  },
+  {
+    id: "1",
+    company: "Blackbox.AI",
+    role: "Senior Full Stack Developer",
+    startDate: "Feb 2026",
+    endDate: "May 2026",
+    location: "Mumbai (Contract)",
+    current: false,
+    order: 1,
+    description: [
+      "Developed AI-powered production-grade applications using React, Next.js, MERN stack, PostgreSQL, Python, Node.js, and Express",
+      "Integrated large language models to enable intelligent features such as automation, content generation, and contextual decision-making",
+      "Designed scalable architectures with Redis for caching and real-time performance optimization",
+      "Implemented secure webhook systems for event-driven integrations and seamless service communication",
+      "Explored and implemented emerging AI tools to deliver innovative data-driven solutions",
+    ],
+  },
+  {
+    id: "2",
+    company: "The Branding Club",
+    role: "Fullstack Developer",
+    startDate: "Sep 2024",
+    endDate: "Jan 2026",
+    location: "Mumbai",
+    current: false,
+    order: 2,
+    description: [
+      "Designed and built scalable REST APIs, microservices, and AI-powered backend services using Django, FastAPI, and Node.js",
+      "Developed and integrated AI chatbots, LLM-powered workflows, and intelligent automation features using OpenAI-compatible APIs, LiteLLM, and multi-model AI architectures",
+      "Led frontend development using React.js and Next.js, driving architecture decisions and performance optimization",
+      "Enhanced application performance and state management using Redux, RTK, caching strategies, and frontend optimization techniques",
+      "Facilitated CI/CD processes and automated deployment workflows for reliable and efficient releases",
+    ],
+  },
+  {
+    id: "3",
+    company: "Sanda Group (Profound Digital)",
+    role: "Senior Fullstack Developer",
+    startDate: "Apr 2024",
+    endDate: "Sep 2024",
+    location: "Mumbai",
+    current: false,
+    order: 3,
+    description: [
+      "Led a team of 7 developers in front-end development using React.js and Next.js",
+      "Spearheaded backend development with GraphQL, REST APIs, and Storyblok CMS",
+      "Implemented payment gateways with Adyen and integrated Adyen webhooks",
+      "Designed UI components and conducted API integrations to enhance functionality",
+      "Conducted code reviews, fostering a collaborative team environment",
+    ],
+  },
+  {
+    id: "4",
+    company: "Kenverse",
+    role: "Software Engineer",
+    startDate: "Jul 2022",
+    endDate: "Mar 2024",
+    location: "Bangalore",
+    current: false,
+    order: 4,
+    description: [
+      "Worked on diverse MERN stack projects, demonstrating versatility across the full stack",
+      "Developed responsive UI components utilizing React.js for full-stack MERN applications",
+      "Designed and developed RESTful APIs, integrating seamlessly with frontend systems",
+      "Debugged and optimized systems, improving performance by up to 80%",
+      "Authored reusable code libraries to enhance website functionality across projects",
+    ],
+  },
+  {
+    id: "5",
+    company: "Margosatree Technologies LLP",
+    role: "Front-end Developer (Intern)",
+    startDate: "Jun 2021",
+    endDate: "Jun 2022",
+    location: "Mumbai",
+    current: false,
+    order: 5,
+    description: [
+      "Developed CSS for visually appealing web interfaces and responsive designs",
+      "Enhanced interactivity with JavaScript and frameworks like React",
+      "Utilized CSS methodologies like BEM and preprocessors like Sass",
+      "Delivered projects including blogs and company websites",
+    ],
+  },
+];
+
+export const projectsData = [
+  {
+    id: "1",
+    title: "NeuralChat — Multi-Model AI Platform",
+    description:
+      "Production-grade real-time AI chat platform supporting 15+ LLM providers with intelligent routing, context management, and RAG-powered knowledge bases.",
+    longDesc:
+      "Built a sophisticated AI chat platform that orchestrates multiple LLM providers (OpenAI, Claude, Gemini, Mistral) with intelligent model routing based on query complexity. Features include real-time streaming, conversation memory, RAG-powered document Q&A, and a multi-tenant architecture serving 10k+ concurrent users.",
+    tech: ["Next.js", "FastAPI", "WebSockets", "Redis", "PostgreSQL", "LangChain", "OpenAI", "Docker"],
+    github: "https://github.com/krishna2700/MERN-chat",
+    live: "https://full-stack-prototype-eta.vercel.app",
+    image: "",
+    featured: true,
+    category: "ai",
+    order: 0,
+  },
+  {
+    id: "2",
+    title: "InsightOps — AI Analytics Engine",
+    description:
+      "Natural language analytics dashboard that lets non-technical users query complex databases using plain English, powered by LLM-to-SQL translation.",
+    longDesc:
+      "An enterprise analytics platform where users describe what they want to know in plain English and the system generates optimized SQL, executes it, and renders beautiful visualizations. Built with a Python backend using LangChain for query generation and Next.js for the interactive dashboard.",
+    tech: ["Next.js", "Python", "LangChain", "PostgreSQL", "Neon DB", "Recharts", "FastAPI", "TypeScript"],
+    github: "https://github.com/krishna2700/Full-Stack-Prototype-Test-Mini-InsightOps-",
+    live: "https://full-stack-prototype-eta.vercel.app",
+    image: "",
+    featured: true,
+    category: "ai",
+    order: 1,
+  },
+  {
+    id: "3",
+    title: "RAG Knowledge Engine",
+    description:
+      "Enterprise-grade Retrieval-Augmented Generation system that ingests PDFs, docs, and web pages to create searchable AI knowledge bases with sub-second query times.",
+    longDesc:
+      "A production RAG pipeline built with LangChain, Pinecone vector DB, and FastAPI. Supports multi-format document ingestion (PDF, DOCX, HTML, Markdown), semantic chunking, hybrid search (BM25 + vector), and streaming responses. Deployed on AWS with auto-scaling and 99.9% uptime SLA.",
+    tech: ["Python", "FastAPI", "LangChain", "Pinecone", "OpenAI", "Redis", "AWS", "Docker"],
+    github: "https://github.com/krishna2700/agent-trial",
+    live: "",
+    image: "",
+    featured: true,
+    category: "ai",
+    order: 2,
+  },
+  {
+    id: "4",
+    title: "Real-Time Chat Application",
+    description:
+      "Full-stack MERN real-time chat app with Socket.io, JWT authentication, group rooms, file sharing, and end-to-end message encryption.",
+    longDesc:
+      "A production-ready chat application built with the MERN stack and Socket.io for real-time bidirectional communication. Features include private messaging, group rooms, file/image sharing, read receipts, typing indicators, and JWT-based authentication with refresh token rotation.",
+    tech: ["React.js", "Node.js", "Express", "MongoDB", "Socket.io", "JWT", "Redux", "Tailwind CSS"],
+    github: "https://github.com/krishna2700/fullstack-chat-app",
+    live: "",
+    image: "",
+    featured: false,
+    category: "fullstack",
+    order: 3,
+  },
+  {
+    id: "5",
+    title: "Advanced Authentication System",
+    description:
+      "Enterprise-grade auth system with JWT, refresh tokens, OAuth2 (Google/GitHub), email verification, 2FA, and role-based access control.",
+    longDesc:
+      "A comprehensive authentication and authorization system built on the MERN stack. Implements JWT with refresh token rotation, OAuth2 social login, email verification flows, TOTP-based 2FA, rate limiting, and granular RBAC. Designed as a drop-in auth service for any Node.js application.",
+    tech: ["Node.js", "Express", "MongoDB", "JWT", "OAuth2", "Nodemailer", "React.js", "Redis"],
+    github: "https://github.com/krishna2700/Advanced-Authentication-using-MERN-stack",
+    live: "",
+    image: "",
+    featured: false,
+    category: "fullstack",
+    order: 4,
+  },
+  {
+    id: "6",
+    title: "AI Code Review Bot",
+    description:
+      "GitHub-integrated AI agent that automatically reviews pull requests, detects bugs, suggests optimizations, and enforces coding standards using LLMs.",
+    longDesc:
+      "An intelligent code review automation tool that integrates with GitHub webhooks to analyze every pull request. Uses GPT-4 to detect security vulnerabilities, performance bottlenecks, and style violations. Generates structured review comments with severity ratings and fix suggestions, reducing review time by 60%.",
+    tech: ["Python", "FastAPI", "OpenAI GPT-4", "GitHub API", "Webhooks", "PostgreSQL", "Docker", "Redis"],
+    github: "https://github.com/krishna2700/agent-trial",
+    live: "",
+    image: "",
+    featured: false,
+    category: "ai",
+    order: 5,
+  },
+  {
+    id: "7",
+    title: "E-Commerce Product Store",
+    description:
+      "Full-stack product store with cart management, Stripe payments, admin dashboard, inventory tracking, and automated deployment pipeline.",
+    longDesc:
+      "A complete e-commerce solution built with the MERN stack. Features include product catalog with search/filter, shopping cart with persistent state, Stripe payment integration, order management, admin dashboard for inventory, and a CI/CD pipeline for zero-downtime deployments.",
+    tech: ["React.js", "Node.js", "Express", "MongoDB", "Stripe", "Redux", "Tailwind CSS", "Docker"],
+    github: "https://github.com/krishna2700/Full-Stack-Project-Deployment--Product-Store",
+    live: "",
+    image: "",
+    featured: false,
+    category: "fullstack",
+    order: 6,
+  },
+  {
+    id: "8",
+    title: "DevOps Intelligence Dashboard",
+    description:
+      "AI-powered DevOps monitoring platform that predicts deployment failures, analyzes logs with NLP, and provides intelligent incident response recommendations.",
+    longDesc:
+      "A next-generation DevOps platform that uses ML models to predict deployment failures before they happen by analyzing historical CI/CD data. Features real-time log analysis with NLP anomaly detection, automated incident classification, and AI-generated runbooks for faster resolution.",
+    tech: ["Next.js", "Python", "FastAPI", "PostgreSQL", "Redis", "Docker", "Kubernetes", "OpenAI"],
+    github: "https://github.com/krishna2700",
+    live: "",
+    image: "",
+    featured: false,
+    category: "ai",
+    order: 7,
+  },
+];
+
+export const skillsData = [
+  // Frontend
+  { id: "1", name: "React.js", level: 95, category: "frontend", icon: "⚛", order: 0 },
+  { id: "2", name: "Next.js", level: 93, category: "frontend", icon: "▲", order: 1 },
+  { id: "3", name: "TypeScript", level: 88, category: "frontend", icon: "TS", order: 2 },
+  { id: "4", name: "Tailwind CSS", level: 92, category: "frontend", icon: "🎨", order: 3 },
+  { id: "5", name: "Framer Motion", level: 85, category: "frontend", icon: "✦", order: 4 },
+  { id: "6", name: "Redux / RTK", level: 87, category: "frontend", icon: "⬡", order: 5 },
+  // Backend
+  { id: "7", name: "Node.js", level: 92, category: "backend", icon: "⬢", order: 0 },
+  { id: "8", name: "Express.js", level: 90, category: "backend", icon: "⚡", order: 1 },
+  { id: "9", name: "Python", level: 88, category: "backend", icon: "🐍", order: 2 },
+  { id: "10", name: "FastAPI", level: 85, category: "backend", icon: "🚀", order: 3 },
+  { id: "11", name: "Django", level: 80, category: "backend", icon: "🎯", order: 4 },
+  { id: "12", name: "GraphQL", level: 82, category: "backend", icon: "◈", order: 5 },
+  // AI/ML
+  { id: "13", name: "LangChain", level: 88, category: "ai", icon: "🔗", order: 0 },
+  { id: "14", name: "OpenAI API", level: 92, category: "ai", icon: "🤖", order: 1 },
+  { id: "15", name: "LiteLLM", level: 85, category: "ai", icon: "⚡", order: 2 },
+  { id: "16", name: "RAG Systems", level: 87, category: "ai", icon: "🧠", order: 3 },
+  { id: "17", name: "Prompt Engineering", level: 90, category: "ai", icon: "✍", order: 4 },
+  { id: "18", name: "AI Agents", level: 85, category: "ai", icon: "🕹", order: 5 },
+  // Database & DevOps
+  { id: "19", name: "PostgreSQL", level: 88, category: "devops", icon: "🐘", order: 0 },
+  { id: "20", name: "MongoDB", level: 90, category: "devops", icon: "🍃", order: 1 },
+  { id: "21", name: "Redis", level: 83, category: "devops", icon: "⚡", order: 2 },
+  { id: "22", name: "Docker", level: 82, category: "devops", icon: "🐳", order: 3 },
+  { id: "23", name: "CI/CD", level: 80, category: "devops", icon: "♾", order: 4 },
+  { id: "24", name: "Git / GitHub", level: 93, category: "devops", icon: "⎇", order: 5 },
+];
