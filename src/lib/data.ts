@@ -12,6 +12,7 @@ export const heroData = {
 
 // Companies row — used as a credibility lockup under the hero
 export const companiesData = [
+  "Tredence",
   "Blackbox.AI",
   "The Branding Club",
   "Sanda Group",
@@ -101,13 +102,33 @@ export const aboutData = {
 export const experienceData = [
   {
     id: "0",
+    company: "Tredence Inc.",
+    role: "Associate Manager",
+    startDate: "Jul 2026",
+    endDate: "Present",
+    location: "Bengaluru, Karnataka (Hybrid)",
+    current: true,
+    order: 0,
+    description: [
+      "Working on AI-powered products for eBay, building scalable and production-ready solutions",
+      "Developing Generative AI and LLM-powered applications using RAG, AI Agents, Prompt Engineering, and LLM integrations",
+      "Building end-to-end product features using React.js, Next.js, TypeScript, Node.js, Express.js, Python, and FastAPI",
+      "Designing RAG pipelines and intelligent AI workflows using LangChain, LangGraph, OpenAI APIs, and LiteLLM",
+      "Developing scalable REST APIs, backend services, and microservices with a focus on performance and reliability",
+      "Working with PostgreSQL, MongoDB, and Redis for application and AI workloads",
+      "Using Docker, CI/CD, cloud technologies, and modern engineering practices for production deployments",
+      "Contributing to system design, architecture, technical decisions, and scalable full-stack/AI solutions",
+    ],
+  },
+  {
+    id: "1",
     company: "Self-Employed",
     role: "Freelance Full-Stack & AI Engineer",
     startDate: "Jun 2026",
-    endDate: "Present",
+    endDate: "Jul 2026",
     location: "Mumbai (Remote)",
-    current: true,
-    order: 0,
+    current: false,
+    order: 1,
     description: [
       "Building full-stack web applications and AI-powered products for clients across fintech, SaaS, and e-commerce verticals",
       "Architecting LLM-integrated backends using FastAPI, LangChain, and OpenAI-compatible APIs with RAG pipelines and agentic workflows",
@@ -118,14 +139,14 @@ export const experienceData = [
     ],
   },
   {
-    id: "1",
+    id: "2",
     company: "Blackbox.AI",
-    role: "Senior Full Stack Developer",
+    role: "Senior Software Engineer",
     startDate: "Feb 2026",
-    endDate: "May 2026",
-    location: "Mumbai (Contract)",
+    endDate: "Jun 2026",
+    location: "Mumbai, Maharashtra (Remote, Part-time)",
     current: false,
-    order: 1,
+    order: 2,
     description: [
       "Developed AI-powered production-grade applications using React, Next.js, MERN stack, PostgreSQL, Python, Node.js, and Express",
       "Integrated large language models to enable intelligent features such as automation, content generation, and contextual decision-making",
@@ -135,14 +156,14 @@ export const experienceData = [
     ],
   },
   {
-    id: "2",
+    id: "3",
     company: "The Branding Club",
     role: "Fullstack Developer",
     startDate: "Sep 2024",
     endDate: "Jan 2026",
     location: "Mumbai",
     current: false,
-    order: 2,
+    order: 3,
     description: [
       "Designed and built scalable REST APIs, microservices, and AI-powered backend services using Django, FastAPI, and Node.js",
       "Developed and integrated AI chatbots, LLM-powered workflows, and intelligent automation features using OpenAI-compatible APIs, LiteLLM, and multi-model AI architectures",
@@ -152,14 +173,14 @@ export const experienceData = [
     ],
   },
   {
-    id: "3",
+    id: "4",
     company: "Sanda Group (Profound Digital)",
     role: "Senior Fullstack Developer",
     startDate: "Apr 2024",
     endDate: "Sep 2024",
     location: "Mumbai",
     current: false,
-    order: 3,
+    order: 4,
     description: [
       "Led a team of 7 developers in front-end development using React.js and Next.js",
       "Spearheaded backend development with GraphQL, REST APIs, and Storyblok CMS",
@@ -169,14 +190,14 @@ export const experienceData = [
     ],
   },
   {
-    id: "4",
+    id: "5",
     company: "Kenverse",
     role: "Software Engineer",
     startDate: "Jul 2022",
     endDate: "Mar 2024",
     location: "Bangalore",
     current: false,
-    order: 4,
+    order: 5,
     description: [
       "Worked on diverse MERN stack projects, demonstrating versatility across the full stack",
       "Developed responsive UI components utilizing React.js for full-stack MERN applications",
@@ -186,14 +207,14 @@ export const experienceData = [
     ],
   },
   {
-    id: "5",
+    id: "6",
     company: "Margosatree Technologies LLP",
     role: "Front-end Developer (Intern)",
     startDate: "Jun 2021",
     endDate: "Jun 2022",
     location: "Mumbai",
     current: false,
-    order: 5,
+    order: 6,
     description: [
       "Developed CSS for visually appealing web interfaces and responsive designs",
       "Enhanced interactivity with JavaScript and frameworks like React",
@@ -323,6 +344,81 @@ export const projectsData = [
     featured: false,
     category: "ai",
     order: 7,
+  },
+  {
+    id: "9",
+    title: "AgentOps — Multi-Agent Observability Platform",
+    description:
+      "Real-time tracing, cost tracking, and eval dashboard for AI agent swarms — see every tool call, token spend, and failure across LangGraph/CrewAI agents.",
+    longDesc:
+      "An observability control plane purpose-built for the agentic AI era. Instruments multi-agent systems (LangGraph, CrewAI, AutoGen) with distributed tracing of tool calls and inter-agent handoffs, live token/cost dashboards per agent and per run, automatic failure clustering, and regression evals that catch prompt/model drift before it ships. Built as a drop-in SDK plus a hosted dashboard.",
+    tech: ["Next.js", "FastAPI", "PostgreSQL", "Redis", "LangGraph", "WebSockets", "TypeScript", "Docker"],
+    github: "https://github.com/krishna2700/agentops-control-plane",
+    live: "",
+    image: "",
+    featured: false,
+    category: "ai",
+    order: 8,
+  },
+  {
+    id: "10",
+    title: "VoicePilot — Realtime Voice AI Agent",
+    description:
+      "Low-latency voice assistant with live function-calling, built on WebRTC and realtime speech APIs — talk to an AI agent that can actually take action.",
+    longDesc:
+      "A full-duplex voice AI agent using WebRTC for sub-300ms audio streaming, OpenAI Realtime-style speech-to-speech APIs, and live function-calling so the agent can query databases, trigger workflows, or hand off to human support mid-call. MongoDB stores conversation + action logs; Express handles auth, call routing, and webhook delivery.",
+    tech: ["React.js", "Node.js", "Express", "MongoDB", "WebRTC", "OpenAI Realtime API", "Socket.io", "Redis"],
+    github: "https://github.com/krishna2700/voicepilot-realtime-agent",
+    live: "",
+    image: "",
+    featured: false,
+    category: "ai",
+    order: 9,
+  },
+  {
+    id: "11",
+    title: "DocuMind — Agentic Multi-Document Research Engine",
+    description:
+      "Self-correcting research agent that crawls, cross-references, and synthesizes answers across hundreds of documents with inline citations — agentic RAG done right.",
+    longDesc:
+      "Goes beyond single-shot RAG: a LangGraph-orchestrated agent plans its own research steps, retrieves from a pgvector-backed corpus, critiques its own draft answers against sources, and re-retrieves when confidence is low. Supports PDF/DOCX/web ingestion, hybrid BM25 + vector search, and every claim in the final answer links back to its source passage.",
+    tech: ["Python", "FastAPI", "PostgreSQL", "pgvector", "LangGraph", "OpenAI", "Celery", "Docker"],
+    github: "https://github.com/krishna2700/documind-agentic-rag",
+    live: "",
+    image: "",
+    featured: false,
+    category: "ai",
+    order: 10,
+  },
+  {
+    id: "12",
+    title: "PromptForge — Prompt Eval & Regression Testing Platform",
+    description:
+      "Collaborative workspace for versioning prompts, running A/B evals across models, and catching regressions before a prompt change ships to production.",
+    longDesc:
+      "Teams write prompts like code: version-controlled, peer-reviewed, and tested. PromptForge runs every prompt change against golden datasets across multiple LLM providers via a unified gateway, scores outputs with LLM-as-judge and custom rubrics, and blocks merges on regressions. Includes a visual diff view for prompt + output changes side by side.",
+    tech: ["Next.js", "Node.js", "PostgreSQL", "TypeScript", "OpenAI", "Anthropic API", "Tailwind CSS", "Docker"],
+    github: "https://github.com/krishna2700/promptforge-eval-platform",
+    live: "",
+    image: "",
+    featured: false,
+    category: "ai",
+    order: 11,
+  },
+  {
+    id: "13",
+    title: "ShopSense AI — Conversational Commerce Copilot",
+    description:
+      "AI shopping assistant that understands natural-language intent, recommends products from live inventory, and forecasts demand — a full MERN commerce stack with an LLM brain.",
+    longDesc:
+      "A conversational commerce layer for e-commerce storefronts. Customers describe what they need in plain language; the agent queries live MongoDB inventory, applies a hybrid recommendation engine (collaborative filtering + embedding similarity), and completes checkout hand-off. A separate forecasting service predicts stock-outs from historical order data to feed merchandising decisions.",
+    tech: ["React.js", "Node.js", "Express", "MongoDB", "OpenAI", "Redux", "Stripe", "Tailwind CSS"],
+    github: "https://github.com/krishna2700/shopsense-ai-copilot",
+    live: "",
+    image: "",
+    featured: false,
+    category: "ai",
+    order: 12,
   },
 ];
 
